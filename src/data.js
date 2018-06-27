@@ -1,30 +1,37 @@
-//contries
-/*const getContries = (campuses) => {
-  //let campuses =
-  //for (let i = 0; i < campuses.length; i++){
-    fetch (`https://api.laboratoria.la/campuses`)
+//Get the contries wheres laboratoria has headquarters
+let sedes = []
+const getContries = (campuses) => {
+    fetch (`https://api.myjson.com/bins/130m4m`)
     .then(res => res.json())
-    .then (data => console.log(data))
+    .then (data =>{
+      for (let contries in data){
+        document.getElementById('demo').innerHTML = contries
+        sedes.push(contries)
+    }
+  })
     .catch(err => console.error('Houston, we a problem'))
-  };*/
-//Student Stats
-const url = 'https://api.myjson.com/bins/130m4m'
+    console.log(sedes)
+};
+//Get Student Stats Generation and 
 const computeStudentsStats = (laboratoria) => {
-  fetch (url)
+  fetch ('https://api.myjson.com/bins/130m4m')
   .then (res => res.json())
   .then (data => {
     let sedes = []
-    for (var item in data){
-      let sedes = 
+    for (let item in data){
+      document.createElement('div')
+      document.getElementById('demo').innerHTML = item
+      //data.lima.generacion.cuarta.estudiantes.forEach(user =>
+    //  console.log(`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`))
+
+    //  let sedes =
 
 
     console.log(item)
     //.map
     }
   }
-    //data.lima.generacion.cuarta.estudiantes.forEach(user =>
-    //  console.log(`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`))
-  )
+)//
   .catch (err => console.error('Houston, we have a problem'))
 };
 //Generation Stats
