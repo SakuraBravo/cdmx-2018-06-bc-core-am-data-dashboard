@@ -1,48 +1,29 @@
-//Get the contries wheres laboratoria has headquarters
-let sedes = []
-const getContries = (campuses) => {
-    fetch (`https://api.myjson.com/bins/130m4m`)
-    .then(res => res.json())
-    .then (data =>{
-      for (let contries in data){
-        document.getElementById('demo').innerHTML = contries
-        sedes.push(contries)
-    }
-  })
-    .catch(err => console.error('Houston, we a problem'))
-    console.log(sedes)
-};
-//Get Student Stats Generation and 
-const computeStudentsStats = (laboratoria) => {
-  fetch ('https://api.myjson.com/bins/130m4m')
-  .then (res => res.json())
-  .then (data => {
-    let sedes = []
-    for (let item in data){
-      document.createElement('div')
-      document.getElementById('demo').innerHTML = item
-      //data.lima.generacion.cuarta.estudiantes.forEach(user =>
-    //  console.log(`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`))
+// let blockData = [];
+// const url = "https://raw.githubusercontent.com/SakuraBravo/cdmx-2018-06-bc-core-am-data-dashboard/master/data/laboratoria.json";
+// const getJson = () => {
+//   fetch (url)
+//   .then (res => res.json())
+//   .then ((data) => {
+//   blockData.push(data);
+//   console.log(blockData);
+// })
+//   .catch((error) => {
+//     console.log('Huston we have a problem' );
+//   })
+// };
+//
+// getJson();
+window.data = {
+ computeStudentsStats : (laboratoria) => {
+         let sedeNames = Object.getOwnPropertyNames(laboratoria);
+         let sedes = Object.values(laboratoria);
+         sedes.forEach(element) => {
+           let generationNames = Object.getOwnPropertyNames(sedes);
+           let generations = Object.values(sedes);
+           console.log(generationNames);
+           console.log(generations);
+           document.getElementById('demo').innerHTML = generationNames;
+         }
 
-    //  let sedes =
-
-
-    console.log(item)
-    //.map
-    }
-  }
-)//
-  .catch (err => console.error('Houston, we have a problem'))
-};
-//Generation Stats
-const computeGenerationsStats = (laboratoria) => {
-
-};
-//Sort Students
-const sortStudents = (students, orderBy, orderDirection) => {
-
-};
-//Filter Students
-const filterStudents = (students, search) => {
-
-};
+},
+}

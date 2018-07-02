@@ -1,15 +1,8 @@
-.container{
-  background-color: #fff2d3;
-}
-#heart{
-  color: #f442bc;
-}
-footer{
-  background-color: #f4c242;
+#side-bar{
+  background-color: #FFE521;
   position: fixed;
+  z-index: 1000;
   bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 5%;
-  padding-top: 5%;
+  top: 0;
+
 }
