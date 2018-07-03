@@ -1,0 +1,58 @@
+body{
+  background-color: #FFE521
+}
+
+/*
+body {
+  background-image: url(IMAGENES/Inicio_Laboratoria.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+*/
+#logo{
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#formulario{
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 15px;
+  font-family: Bitter;
+}
+
+#loginBox{
+  background-color: #ffff;
+  display: flex;
+  width: 30%;
+  height: 60%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#heart{
+  color: #f442bc;
+}
+footer{
+  background-color: #f4c242;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}

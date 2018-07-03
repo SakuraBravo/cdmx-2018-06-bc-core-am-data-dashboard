@@ -1,46 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>Data Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  </head>
-  <body>
-    <header>
-      <div class="col-12, col-sm-12, col-md-12, col-lg-12 text-center">
-          <h1>Laboratoria</h1>
-      </div>
-    </header>
-    <div class="container">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-        <div class="btn-group">
-          <div class="col-log-3">
-            <button class="btn btn-danger" id="student-stats">Status Estudiantes</button>
-          </div>
-        <button class="btn btn-danger" id="contries">Sedes</button>
-        <button class="btn btn-primary" id="compute-generation">Generaciones</button>
-        <button class="btn btn-default" id="sort-students">Estudiantes</button>
-        <button class="btn btn-warning" id="filter-students">Filtrar Estudiantes</button>
-        </div>
-      </div>
-      <div class="row"></div>
-        <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-          <div id="sedes">
-            
-          </div>
-      <div class="row"></div>
-        <div class="col-sm-4 col-md-4 col-lg-4 text-center"></div>
-        <div id="demo"></div>
-      </div>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--Link de libreria de Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  <title></title>
+</head>
+<body>
+  <div id="demo"></div>
+  <div class="container-fluid">
+    <nav id="menu" class="navbar navbar-fixed-left col-lg-2 navbar-light bg-faded"></nav>
+    <div id="lima" class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    <div id="mexico" class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    <div id="santiago" class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    <div id="margen" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-lg-offset-11"></div>
+    <div class="row">
 
-    </div>
-    <footer class="row">
-      <div class="col-12">
-        <span id="madefor">Made with<span id="heart"> ♥ </span>by:<br>angelparrot</span></div>
-    </footer>
-    <script type="text/javascript" src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
-</html>
+  </div>
+  <!--libreria de Bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>

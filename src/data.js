@@ -1,51 +1,42 @@
 window.data = {
-  computeStudentsStats: (laboratoria) => {
-    fetch ('https://api.myjson.com/bins/130m4m')
-    .then (res => res.json())
-    .then (data => {
-      for (key in data){
-      let contries = key
-      let generations = data[key].generacion
-      let printContries = document.getElementById('sedes')
-      let showContries = document.createElement('li')
-      showContries.innerHTML = contries
-      printContries.appendChild(showContries)
-      let printGenerations = document.getElementById('demo')//Variable para Manipular DOM
-      let showGenerations = document.createElement('li')//Variable para Manipular DOM
-      showGenerations.innerHTML = Object.keys(generations)
-      printGenerations.appendChild(showGenerations)
+ computeStudentsStats : (laboratoria) => {
+//_____ Aquí van todas las funciones para sacar promedios de las estudiantes
 
-      }
-    }
-  )}
-      //  item.hasOwnProperty('generacion')
+    let sedes = Object.keys(laboratoria); // Sedes ya es un arreglo.
+    //document.getElementById("demo").innerHTML = sedes[2];
+    //console.log(sedes);
+         //let sedeNames = Object.getOwnPropertyNames(laboratoria);
 
-    // let laboratoria = data
-    //   console.log(laboratoria)
-    //   for (let item in laboratoria){
-    //     item.generacion.forEach(user =>
-    //     console.log((`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`)));
-    //     console.log(item)
-    //     //imprimir sedes
-    //     //condicionar de si tiene propiedad con hasOwnProperty
-    //     console.log(laboratoria[item]['generacion'])
+//----Obtengo los campus
+    for (info in laboratoria){
+      //console.log(info)
+      let generations = Object.keys(laboratoria[info].generacion); // Sedes ya es un arreglo.
 
-      // for (let i =0; i < laboratoria; i++){
-      //   let items = laboratoria[i].length
-      //   data.[lima].generacion.[cuarta].estudiantes.forEach(user =>
-      // console.log((`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`));
-      // //.map
-      // data.mexico.generacion.cuarta.estudiantes.forEach(user =>
+      //console.log(generations);
+      // generations.forEach(info) => {
+      //   let students = generacion[info].estudiantes;
+      //   console.log(students);
+      // }
+  }
+//console.log(gen);
 
-  // computeGenerationsStats: (laboratoria) =>{
-  //
-  // },
-  //
-  // sortStudents: (students, orderBy, orderDirection) => {
-  //
-  // },
-  //
-  // filterStudents: (students, search) => {
-  //
-  // }
-}
+         //return students = [campus,generacio]
+        // return students = [stats]
+},
+
+computeGenerationsStats : (laboratoria) =>{
+  for(key in laboratoria){
+    let contries = key;
+    let generations = laboratoria[key].generacion;
+    console.log(contries);
+    console.log(generations);
+  }
+
+},
+sortStudents : (laboratoria) => {
+
+},
+
+filterStudents :() => {
+
+  },
