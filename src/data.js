@@ -50,3 +50,4 @@ sortStudents : (laboratoria) => {
 filterStudents :() => {
 
   },
+}
