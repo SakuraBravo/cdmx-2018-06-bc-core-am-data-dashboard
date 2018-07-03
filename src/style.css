@@ -1,17 +1,25 @@
-/*
+
 #menu{
   background-color: #FFE521;
   position: fixed;
+  left: 0;
   z-index: 1000;
   bottom: 0;
   top: 0;
 }
 
 #margen{
-  background-color: #000;
+  background-color: #FF009E;
   position: fixed;
   z-index: 1000;
   bottom: 0;
   top: 0;
 }
-*/
+#logo-lab{
+  padding-top: 10%;
+}
+/*
+.img-fluid{
+  max-width:2000%;
+  height: auto;
+}*/

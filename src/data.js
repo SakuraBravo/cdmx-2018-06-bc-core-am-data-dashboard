@@ -28,8 +28,18 @@ computeGenerationsStats : (laboratoria) =>{
   for(key in laboratoria){
     let contries = key;
     let generations = laboratoria[key].generacion;
-    console.log(contries);
-    console.log(generations);
+     for (gen in generations){
+        let students = generations[gen].estudiantes;
+          students.forEach (user => {
+            console.log(user.progreso.porcentajeCompletado);
+          })
+
+     }
+
+
+
+    //console.log(contries);
+    //console.log(generations);
   }
 
 },
