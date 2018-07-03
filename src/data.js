@@ -1,48 +1,51 @@
-//Get the contries wheres laboratoria has headquarters
-let sedes = []
-const getContries = (campuses) => {
-    fetch (`https://api.myjson.com/bins/130m4m`)
-    .then(res => res.json())
-    .then (data =>{
-      for (let contries in data){
-        document.getElementById('demo').innerHTML = contries
-        sedes.push(contries)
-    }
-  })
-    .catch(err => console.error('Houston, we a problem'))
-    console.log(sedes)
-};
-//Get Student Stats Generation and 
-const computeStudentsStats = (laboratoria) => {
-  fetch ('https://api.myjson.com/bins/130m4m')
-  .then (res => res.json())
-  .then (data => {
-    let sedes = []
-    for (let item in data){
-      document.createElement('div')
-      document.getElementById('demo').innerHTML = item
-      //data.lima.generacion.cuarta.estudiantes.forEach(user =>
-    //  console.log(`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`))
-
-    //  let sedes =
-
-
-    console.log(item)
-    //.map
+window.data = {
+  computeStudentsStats: (laboratoria) => {
+    console.log(laboratoria)
+      for (key in laboratoria){
+      let contries = key
+      console.log(laboratoria[key])
+      let generations = laboratoria[key].generacion
+      let printContries = document.getElementById('sedes')
+      let showContries = document.createElement('li')
+      showContries.innerHTML = contries
+      printContries.appendChild(showContries)
+      let printGenerations = document.getElementById('demo')//Variable para Manipular DOM
+      let showGenerations = document.createElement('li')//Variable para Manipular DOM
+      showGenerations.innerHTML = Object.getOwnPropertyNames(generations)
+      printGenerations.appendChild(showGenerations)
+      // let students = generations.name
+      //   console.log(students)
+      }
     }
   }
-)//
-  .catch (err => console.error('Houston, we have a problem'))
-};
-//Generation Stats
-const computeGenerationsStats = (laboratoria) => {
 
-};
-//Sort Students
-const sortStudents = (students, orderBy, orderDirection) => {
+      //  item.hasOwnProperty('generacion')
 
-};
-//Filter Students
-const filterStudents = (students, search) => {
+    // let laboratoria = data
+    //   console.log(laboratoria)
+    //   for (let item in laboratoria){
+    //     item.generacion.forEach(user =>
+    //     console.log((`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`)));
+    //     console.log(item)
+    //     //imprimir sedes
+    //     //condicionar de si tiene propiedad con hasOwnProperty
+    //     console.log(laboratoria[item]['generacion'])
 
-};
+      // for (let i =0; i < laboratoria; i++){
+      //   let items = laboratoria[i].length
+      //   data.lima.generacion.cuarta.estudiantes.forEach(user =>
+      // console.log((`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`));
+      // //.map
+      // data.mexico.generacion.cuarta.estudiantes.forEach(user =>
+
+  // computeGenerationsStats: (laboratoria) =>{
+  //
+  // },
+  //
+  // sortStudents: (students, orderBy, orderDirection) => {
+  //
+  // },
+  //
+  // filterStudents: (students, search) => {
+  //
+  // }
