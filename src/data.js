@@ -1,24 +1,23 @@
 window.data = {
   computeStudentsStats: (laboratoria) => {
-    console.log(laboratoria)
-      for (key in laboratoria){
+    fetch ('https://api.myjson.com/bins/130m4m')
+    .then (res => res.json())
+    .then (data => {
+      for (key in data){
       let contries = key
-      console.log(laboratoria[key])
-      let generations = laboratoria[key].generacion
+      let generations = data[key].generacion
       let printContries = document.getElementById('sedes')
       let showContries = document.createElement('li')
       showContries.innerHTML = contries
       printContries.appendChild(showContries)
       let printGenerations = document.getElementById('demo')//Variable para Manipular DOM
       let showGenerations = document.createElement('li')//Variable para Manipular DOM
-      showGenerations.innerHTML = Object.getOwnPropertyNames(generations)
+      showGenerations.innerHTML = Object.keys(generations)
       printGenerations.appendChild(showGenerations)
-      // let students = generations.name
-      //   console.log(students)
+
       }
     }
-  }
-
+  )}
       //  item.hasOwnProperty('generacion')
 
     // let laboratoria = data
@@ -33,7 +32,7 @@ window.data = {
 
       // for (let i =0; i < laboratoria; i++){
       //   let items = laboratoria[i].length
-      //   data.lima.generacion.cuarta.estudiantes.forEach(user =>
+      //   data.[lima].generacion.[cuarta].estudiantes.forEach(user =>
       // console.log((`${user.nombre} ${user.correo} ${user.progreso.porcentajeCompletado}`));
       // //.map
       // data.mexico.generacion.cuarta.estudiantes.forEach(user =>
@@ -49,3 +48,4 @@ window.data = {
   // filterStudents: (students, search) => {
   //
   // }
+}
