@@ -19,11 +19,25 @@ const getData = (data) => {
     //console.log(laboratoria);
     window.data.computeStudentsStats(laboratoria);
     window.data.computeGenerationsStats(laboratoria);
-
+    drawContries(laboratoria)
 
   })
     .catch((error) => {
-      console.log('Huston we have a problem' );
+      console.log('Houston we have a problem' );
     })
   };
 getData(url);
+
+const contries = document.getElementById('campus');
+const drawContries = (laboratoria) =>{
+  document.getElementById('btn-contries').addEventListener('click', (event) => {
+      let campus = Object.keys(laboratoria)
+      for(key in laboratoria){
+        let sedes = key
+      console.log(sedes)
+      contries.innerHTML += `<div class="card">${sedes}</div>`
+      }
+
+    }
+  )
+}

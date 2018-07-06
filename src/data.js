@@ -1,53 +1,47 @@
 window.data = {
  computeStudentsStats : (laboratoria) => {
-//_____ Aquí van todas las funciones para sacar promedios de las estudiantes
-
-    let sedes = Object.keys(laboratoria); // Sedes ya es un arreglo.
-    //document.getElementById("demo").innerHTML = sedes[2];
-    //console.log(sedes);
-         //let sedeNames = Object.getOwnPropertyNames(laboratoria);
-
-//----Obtengo los campus
-    for (info in laboratoria){
-      //console.log(info)
-      let generations = Object.keys(laboratoria[info].generacion); // Sedes ya es un arreglo.
-
-      //console.log(generations);
-      // generations.forEach(info) => {
-      //   let students = generacion[info].estudiantes;
-      //   console.log(students);
-      // }
+//Esta funcion retorna campus y generacion
+const students = [];
+let newArr;
+for (key in laboratoria){
+  let generations = (laboratoria[key].generacion);
+  for (gen in generations){
+    let studentsArr = generations[gen].estudiantes;
+    studentsArr.forEach(student => {
+      const obj ={
+        name: student.nombre,
+        email: student.correo,
+        campus: key,
+        generation: gen,
+        stats: {
+          completedPercentage: student.progreso.porcentajeCompletado,
+          topics: {
+            completedPercentage: '',
+            percentageDuration:'',
+            subTopics:{
+              completedPercentage:'',
+              type: '',
+              duration: ','
+            },
+          },
+        },
+      }
+      students.push(obj);
+    })
   }
-//console.log(gen);
-
-         //return students = [campus,generacio]
-        // return students = [stats]
+}
+console.log('Arr Students', students)
+return students;
 },
-
-computeGenerationsStats : (laboratoria) =>{
-  for(key in laboratoria){
-    let contries = key;
-    let generations = laboratoria[key].generacion;
-     for (gen in generations){
-        let students = generations[gen].estudiantes;
-          students.forEach (user => {
-            console.log(user.progreso.porcentajeCompletado);
-          })
-
-     }
-
-
-
-    //console.log(contries);
-    //console.log(generations);
-  }
-
-},
-sortStudents : (laboratoria) => {
+computeGenerationsStats: (laboratoria) =>{
 
 },
 
-filterStudents :() => {
+sortStudents:(laboratoria) => {
 
-  },
+},
+
+filterStudents:() => {
+
+},
 }
