@@ -52,7 +52,7 @@ window.data = {
       }
     }
     console.log('Array Students', students);
-    return students;
+    return students.campus.generacion;
   },
 
   computeGenerationsStats : (laboratoria) =>{

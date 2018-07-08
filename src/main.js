@@ -17,13 +17,14 @@ const getData = (data) => {
     .then (res => res.json())
     .then ((laboratoria) => {
     //console.log(laboratoria);
+
     window.data.computeStudentsStats(laboratoria);
     window.data.computeGenerationsStats(laboratoria);
 
 
   })
     .catch((error) => {
-      console.log('Huston we have a problem' );
+      console.log('Houston we have a problem' );
     })
   };
 getData(url);
