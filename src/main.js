@@ -28,3 +28,9 @@ const getData = (data) => {
     })
   };
 getData(url);
+
+// Función para el botón super califragilística y espialidoza
+$("#menu-toggle").click(function(e) {
+  e.preventDefault(); 
+$("#wrapper").toggleClass("toggled");
+});
