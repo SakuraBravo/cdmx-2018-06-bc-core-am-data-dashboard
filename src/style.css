@@ -1,16 +1,172 @@
-.wrapper {
-    display: flex;
-    width: 100%;
+body {
+  overflow-x: hidden;
 }
 
-#sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
+#logo-lab{
+  padding-top: 20px;
+  padding-bottom: 50px;
+  width: 80%;
+}
+#logo-menu {
+  display: none;
+}
+#menu-toggle{
+  color: #000;
+}
+/*Browser Support for Transitions para que algunas propiedades
+sean compatibles con distintos navegadores*/
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* Padding izquierdo de todo el contenido*/
+@media(max-width:768px) {
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+}
+
+/*Aquí le restamos el padding anterior para que quede al raz izquierdo*/
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* Ancho de menu en desktop  */
+ #wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+/* Para que el contenido no se colapse con el despliegue del menu*/
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -300px;
+}
+/* Sidebar Styles */
+/*Para alinear todo a la esquina superior derecha*/
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Interlineado e indentado */
+/* .sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+} */
+/*Contenido del menu*/
+.sidebar-nav li a {
+  font-family: Open Sans;
+  font-size: 15pt;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #999999;
+  line-height: 40px;
+}
+/* El hover sobre el menu */
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  /* color: #FF009E; */
+  color: #FFE521;
+  /* color: #FFE521; */
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active{
+  /* color: #56F89A; */
+  color: #fff;
+}
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+/* .sidebar-nav>.sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+.sidebar-nav>.sidebar-brand a {
+  color: #999999;
+}
+.sidebar-nav>.sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+} */
+
+@media(min-width:768px) {
+
+  #logo-menu{
+    display: inline;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    width: 85%;
+  }
+
+  #logo-lab{
+    display: none;
+  }
+
+  #menu-toggle{
+    color: #000;
+    visibility: hidden;
+  }
+
+  /* #wrapper {
+    padding-left: 0;
+  }
+  #wrapper.toggled {
+    padding-left: 250px;
+  } */
+
+  /* #sidebar-wrapper {
+    width: 0;
+  } */
+
+  /* Ancho de menu en desktop  */
+  #wrapper.toggled #sidebar-wrapper {
+    width: 150px;
+  }
+  /* #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+    width: 100%
+  } */
+  #wrapper.toggled #page-content-wrapper {
+    padding-left: 150px;
+    position: relative;
+    margin-right: 0;
+  }
+  /*Contenido del menu*/
+  .sidebar-nav li a {
+    font-family: Open Sans;
+    font-size: 12pt;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #999999;
+    line-height: 40px;
+  }
+
+
 }
