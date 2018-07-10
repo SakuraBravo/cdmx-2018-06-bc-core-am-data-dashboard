@@ -28,7 +28,6 @@ const getData = (data) => {
 };
 getData(url);
 
-
 // const info = (laboratoria) =>{
 //   let processedData = window.data.computeStudentsStats(laboratoria);
 //   // console.log(processedData);
@@ -56,3 +55,4 @@ $('#lima-toggle').click(function(event) {
 // Botón de México
 
 // Botón de Perú
+

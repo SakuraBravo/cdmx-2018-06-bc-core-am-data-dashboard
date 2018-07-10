@@ -8,6 +8,7 @@ const statusP = (num) => {
   } else
     return 'No hay info';
 };
+
 // Formula para obtener el promedio general dependiendo de la cantidad de estudiantes que se ingresen
 // const averageFormula = ('sumaDeArray','diviciónEntreEstudiantes.length') => {
 //
@@ -19,6 +20,11 @@ let obj;
 let objeto;
 let result;
 
+const students = [];
+const generations = [];
+let topic;
+let cp;
+const sum = [];
 
 window.computeStudentsStats = (laboratoria) => {
   const students = [];
