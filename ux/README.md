@@ -237,7 +237,9 @@ Tomando en cuenta el primer acercamiento con el usuario y la investigación de l
 
 Nuestro primer acercamiento es idealizado y busca darle al usuario sus principales necesidades y mucho más. (Primer nivel de Scketching) También ya estamos considerando utilizar los colores institucionales de Laboratoria.
 
-Sketch: (Adjuntar liga)  
+[Primeros Sketch](https://goo.gl/TM9Lt3)
+[Primeros Sketch](https://goo.gl/FCM4Th)
+[Primeros Sketch](https://goo.gl/ux2yfi)
 
 [Prototipo en figma](https://goo.gl/PSbDaS)
 
@@ -255,7 +257,13 @@ Los insights de la prueba de usuario fueron:
 
 También, dentro de nuestro proceso, caímos en cuenta que teníamos que buscar la solución más sencilla y efectiva que nos permitiera aprender conjuntamente tanto la parte de investigación y diseño como de desarrollo e implementación.
 
-[Fotos de la segunda y tercera vuelta de scketching](https://goo.gl/PSbDaS)
+[Fotos de la segunda vuelta de scketching](https://goo.gl/DFWHc5)
+[Fotos de la segunda vuelta de scketching](https://goo.gl/9f7n7t)
+[Fotos de la segunda vuelta de scketching](https://goo.gl/Hv43G4)
+
+SINTESIS FINAL DE LA INTERFAZ
+[Fotos de la segunda vuelta de scketching](https://goo.gl/osvXTo)
+
 
 ### **5. User Interfaz**
 
@@ -263,11 +271,11 @@ Al trabajar un producto directamente relacionado con una empresa en específico,
 
 Su color primario es un amarillo brillante (#FFE521) y utiliza como secundario para dar acentos el magenta (#FF009E) y el menta (#56F89A) además de un negro como auxiliar, pues es dónde también se presenta el logo.
 
-[Colores Laboratoria](https://goo.gl/PSbDaS)
+[Colores Laboratoria](https://goo.gl/H4NhWK)
 
 En tipografía utilizan Bitter para los títulos y Open Sans para contenido y el logo, nosotras utilizamos únicamente Open Sans en nuestra app pues al ser un producto responsive tenemos que asegurar su fácil lectura en diferentes dispositivos.
 
-[Tipografía de Laboratoria](https://goo.gl/PSbDaS)
+[Tipografía de Laboratoria](https://goo.gl/N4uBwt)
 
 Para nuestra app caímos en cuenta de que tenía que diferenciarse de otras interfaces de Laboratoria, para que los usuarios no se confundieran entre plataformas, específicamente al LMS por lo que decidimos utilizar el negro como base, y el amarillo, magenta y verde para dar acentos.
 
