@@ -63,6 +63,9 @@ Analizamos las interfaces de diferentes aplicaciones para visualización de dato
 sketchs para luego mostrárselos al cliente por medio de un prototipo de baja fidelidad y así realizar las mejoras antes de
 realizar el código.
 
+![Fotos Movil](https://goo.gl/9HDgHT)
+
+
 ****
 
 ### Sandra Salinas Salinas

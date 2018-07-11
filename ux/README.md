@@ -280,8 +280,8 @@ En tipografía utilizan Bitter para los títulos y Open Sans para contenido y el
 
 Para nuestra app caímos en cuenta de que tenía que diferenciarse de otras interfaces de Laboratoria, para que los usuarios no se confundieran entre plataformas, específicamente al LMS por lo que decidimos utilizar el negro como base, y el amarillo, magenta y verde para dar acentos.
 
-![LMS](https://goo.gl/PSbDaS)
-![Interfaz](https://goo.gl/PSbDaS)
+![LMS](https://goo.gl/zVnKEt)
+![Interfaz](https://goo.gl/TASjqp)
 
 
 En su implementación  utilizamos Bootstrap 4.0  y CSS para realizar el diseño y estilo de la aplicación.
@@ -316,9 +316,9 @@ Colocamos la información destacada a primera vista, el usuario entrará directa
 __Responsive:__
 Ya que es información que está actualizándose constantemente y es necesaria para tomar decisiones en procesos internos, la aplicación puede visualizarse tanto en dispositivos móviles como en desktop.
 
+![Fotos Movil](https://goo.gl/9HDgHT)
+![Fotos Movil](https://goo.gl/yPzRhG)
 
-![Fotos Login](https://goo.gl/pUhYUv)
-![Fotos Login](https://goo.gl/pUhYUv)
 
 
 
