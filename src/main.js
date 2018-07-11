@@ -20,10 +20,12 @@ const getData = (data) => {
       const students = window.computeStudentsStats(laboratoria);
       const generations = window.computeGenerationsStats(laboratoria);
       drawStudentsByCampus(students);
+      drawStudentsByCampusMexico(students);
+      drawStudentsByCampusSantiago(students);
       studentsStatusLima(students);
       studentsStatusMexico(students);
       studentsStatusSantiago(students);
-      santiagoTotalStudents(students);
+      // santiagoTotalStudents(students);
       // const students = data.computeStudentsStats(laboratoria);
       window.sortStudents(students);
     })
@@ -34,16 +36,60 @@ const getData = (data) => {
 getData(url);
 
 // let dataResults = document.getElementById('data-results');
-const drawStudentsByCampus = (students) =>{
-  document.getElementById('lima-toggle').addEventListener('click', (event)=> {
+
+// Funciones para México
+const drawStudentsByCampusMexico = (students) =>{
+  document.getElementById('mexico-toggle').addEventListener('click', (event)=> {
     document.getElementsByTagName('h5')[0].innerHTML = 'Status México';
   });
   students.forEach(student => {
     document.getElementById('fifth-generation').addEventListener('click', (event) => {
       let result = '';
       let printStudents = document.getElementById('fifth-generation-results');
-      if (student.campus === 'lima' && student.generation === 'quinta') {
+      if (student.campus === 'mexico' && student.generation === 'quinta') {
         document.getElementsByTagName('h5')[0].innerHTML = 'Status México Quinta Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+  students.forEach(student => {
+    document.getElementById('fourth-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('fourth-generation-results');
+      if (student.campus === 'mexico' && student.generation === 'cuarta') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status México Cuarta Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+
+  students.forEach(student => {
+    document.getElementById('third-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('third-generation-results');
+      if (student.campus === 'mexico' && student.generation === 'tercera') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status México Tercera Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+};
+
+
+// Funciones para Lima
+const drawStudentsByCampus = (students) =>{
+  document.getElementById('lima-toggle').addEventListener('click', (event)=> {
+    document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima';
+  });
+  students.forEach(student => {
+    document.getElementById('fifth-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('fifth-generation-results');
+      if (student.campus === 'lima' && student.generation === 'quinta') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima Quinta Generación';
         result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
         printStudents.innerHTML += result;
       }
@@ -73,6 +119,49 @@ const drawStudentsByCampus = (students) =>{
     });
   });
 };
+
+// Funciones para Santiago
+const drawStudentsByCampusSantiago = (students) =>{
+  document.getElementById('santiago-toggle').addEventListener('click', (event)=> {
+    document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago';
+  });
+  students.forEach(student => {
+    document.getElementById('fifth-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('fifth-generation-results');
+      if (student.campus === 'santiago' && student.generation === 'quinta') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Quinta Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+  students.forEach(student => {
+    document.getElementById('fourth-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('fourth-generation-results');
+      if (student.campus === 'santiago' && student.generation === 'cuarta') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Cuarta Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+
+  students.forEach(student => {
+    document.getElementById('third-generation').addEventListener('click', (event) => {
+      let result = '';
+      let printStudents = document.getElementById('third-generation-results');
+      if (student.campus === 'santiago' && student.generation === 'tercera') {
+        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Tercera Generación';
+        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+        printStudents.innerHTML += result;
+      }
+    });
+  });
+};
+
+// Funciones para Status
 let lowerStudentsArrLima = [];
 let averageStudentsArrLima = [];
 let overStudentsArrLima = [];
