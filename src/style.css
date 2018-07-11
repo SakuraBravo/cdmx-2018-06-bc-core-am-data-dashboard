@@ -1,14 +1,41 @@
 body {
   overflow-x: hidden;
 }
+
+h5{
+  padding: 8px;
+}
+
+h2{
+  padding-bottom: 15px;
+}
+#active{
+  padding-bottom: 20px;
+
+}
+
+#div1 span{
+  font-size: 50pt;
+  color: #FF009E;}
+#div2 span{
+  font-size: 5pt
+  color:red;
+  position: relative;
+}
+
 #logo-lab{
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   width: 80%;
 }
 #logo-menu {
   display: none;
 }
+#profile-menu{
+  width: 90%;
+  padding-bottom: 20px;
+}
+
 #menu-toggle{
   color: #000;
 }
@@ -23,6 +50,7 @@ sean compatibles con distintos navegadores*/
 }
 /* Padding izquierdo de todo el contenido*/
 @media(max-width:768px) {
+
   #wrapper.toggled {
     padding-left: 250px;
   }
@@ -51,13 +79,24 @@ sean compatibles con distintos navegadores*/
 #page-content-wrapper {
   width: 100%;
   position: absolute;
-  padding: 15px;
+  padding: 15;
 }
 
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-right: -300px;
 }
+#sede{
+  float: left;
+  background-color: pink;
+  width: 30px;
+}
+#generacion{
+  float:
+  font-size: 20pt;
+}
+
+
 /* Sidebar Styles */
 /*Para alinear todo a la esquina superior derecha*/
 .sidebar-nav {
@@ -87,8 +126,8 @@ sean compatibles con distintos navegadores*/
 .sidebar-nav li a:hover {
   text-decoration: none;
   /* color: #FF009E; */
-  color: #56F89A;
-  /* color: #FFE521; */
+  /* color: #56F89A; */
+  color: #FFE521;
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -98,6 +137,12 @@ sean compatibles con distintos navegadores*/
 }
 .sidebar-nav li a:focus {
   text-decoration: none;
+}
+
+/* Contenido de la página */
+.header {
+  font-family: Open Sans;
+  position: sticky;
 }
 
 /* .sidebar-nav>.sidebar-brand {
@@ -115,12 +160,26 @@ sean compatibles con distintos navegadores*/
   background: none;
 } */
 
+/*Versión Descktop*/
 @media(min-width:768px) {
+  /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
 
   #logo-menu{
     display: inline;
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     width: 85%;
   }
 
@@ -129,6 +188,7 @@ sean compatibles con distintos navegadores*/
   }
 
   #menu-toggle{
+    padding-top: 0;
     color: #000;
     visibility: hidden;
   }
@@ -149,14 +209,15 @@ sean compatibles con distintos navegadores*/
   #wrapper.toggled #sidebar-wrapper {
     width: 150px;
   }
-  /* #page-content-wrapper {
-    padding: 20px;
-    position: relative;
-    width: 100%
 
-  } */
+  #page-content-wrapper {
+    padding-top: 0px;
+    position: absolute;
+    width: 100%
+  }
+
   #wrapper.toggled #page-content-wrapper {
-    padding-left: 150px;
+    padding-left: 180px;
     position: relative;
     margin-right: 0;
   }
@@ -170,35 +231,9 @@ sean compatibles con distintos navegadores*/
     color: #999999;
     line-height: 40px;
   }
+/*Contenido de la página*/
+  .header {
+  position: relative;
+  }
 
 }
-
-
-
-
-
-/*
-#menu{
-  background-color: #FFE521;
-  position: fixed;
-  left: 0;
-  z-index: 1000;
-  bottom: 0;
-  top: 0;
-}
-
-#margen{
-  background-color: #FF009E;
-  position: fixed;
-  z-index: 1000;
-  bottom: 0;
-  top: 0;
-}
-#logo-lab{
-  padding-top: 10%;
-}
-/*
-.img-fluid{
-  max-width:2000%;
-  height: auto;
-} */

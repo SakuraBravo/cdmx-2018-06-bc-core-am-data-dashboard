@@ -21,20 +21,22 @@ const getData = (data) => {
       const generations = window.computeGenerationsStats(laboratoria);
       // const students = data.computeStudentsStats(laboratoria);
       window.sortStudents(students);
+      drawstudents(students);
     })
     .catch((error) => {
-      console.log('Houston we have a problem');
+      console.log('Houston we have a problem', error);
     });
 };
 getData(url);
 
+const drawstudents = (students)=>{
 
-// const info = (laboratoria) =>{
-//   let processedData = window.data.computeStudentsStats(laboratoria);
-//   // console.log(processedData);
-// };
+};
 
-// const processedData = data.computeStudentsStats(laboratoria)
+
+// console.log(drawstudents(students));
+
+  // console.log(students.filter(students.campus))
 
 // ___BOTONES___
 // Funciónes para los botones super califragilística y espialidosos que colapsan en menu Bootstrap

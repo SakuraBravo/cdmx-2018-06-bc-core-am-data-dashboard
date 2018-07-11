@@ -61,7 +61,7 @@ window.computeStudentsStats = (laboratoria) => {
       });
     }
   }
-  console.log('Array con Objetos', students);
+  // console.log('Array con Objetos', students);
   return students;
 };
 
@@ -75,6 +75,7 @@ window.computeGenerationsStats = (laboratoria) => {
       let generationArr = generations[gen].estudiantes;
       for (averages of generationArr) {
         average = averages.progreso.porcentajeCompletado;
+        // console.log(average);
         //   for (numbers in average) {
         //     result = average[numbers].reduce((i, j) => i + j);
         //     console.log(result);
