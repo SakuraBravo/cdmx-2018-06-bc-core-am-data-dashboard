@@ -62,3 +62,15 @@ mejorar los futuros Bootcamps por medio de la data mostrada.
 Analizamos las interfaces de diferentes aplicaciones para visualización de datos, de esta manera realizamos diferentes
 sketchs para luego mostrárselos al cliente por medio de un prototipo de baja fidelidad y así realizar las mejoras antes de
 realizar el código.
+
+****
+
+### Sandra Salinas Salinas
+Diseñadora Industrial
+Laboratoria 6ta Generación
+Campus CDMX
+
+### Nallely Bravo Rodríguez
+Diseñadora Integral
+Laboratoria 6ta Generación
+Campus CDMX

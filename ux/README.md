@@ -305,7 +305,7 @@ __Usuario:__
 Al ser una aplicación interna que maneja información confidencial, se implementó el uso de un Login al cual puedes entrar con un correo institucional de Laboratoria y una contraseña que se te asignará previamente y entregará por correo.
 Para tener control de los ingresos, no es posible cambiar la contraseña, tiene que ser resignada, así también puede ser vetada si la persona hace uso indebido de la información.
 
-![Foto Login](https://goo.gl/PSbDaS)
+![Foto Login](https://goo.gl/qiNd4C)
 
 __MENU:__
 El menú sidebar es sencillo y collapsable en dispositivos móviles, permite tener acceso a las sedes y confirmar dando la bienvenida al usuario. Es un menú que puede crecer a la par de que crezca la empresa.
