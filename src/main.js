@@ -19,6 +19,9 @@ const getData = (data) => {
       // console.log(laboratoria);
       const students = window.computeStudentsStats(laboratoria);
       const generations = window.computeGenerationsStats(laboratoria);
+      window.sortStudents(students);
+      window.filterStudents(students);
+
       drawStudentsByCampus(students);
       drawStudentsByCampusMexico(students);
       drawStudentsByCampusSantiago(students);
@@ -27,7 +30,6 @@ const getData = (data) => {
       studentsStatusSantiago(students);
       // santiagoTotalStudents(students);
       // const students = data.computeStudentsStats(laboratoria);
-      window.sortStudents(students);
     })
     .catch((error) => {
       console.log('Houston we have a problem', error);
@@ -220,7 +222,7 @@ const studentsStatusSantiago = (students) => {
       overStudentsArrSantiago.push(student.name);
     }
   });
-  console.log(lowerStudentsArrSantiago.length);
+  // console.log(lowerStudentsArrSantiago.length);
 };
 
 
@@ -238,17 +240,3 @@ $('#menu-toggle').click(function(event) {
   event.preventDefault();
   $('#wrapper').toggleClass('toggled');
 });
-
-$('#logo-lab').click(function(event) {
-  event.preventDefault();
-  $('#wrapper').toggleClass('toggled');
-});
-
-// Botón de Lima
-$('#lima-toggle').click(function(event) {
-  event.preventDefault();
-  $('lima-gen1').toggleClass('toggled');
-});
-// Botón de México
-
-// Botón de Perú
