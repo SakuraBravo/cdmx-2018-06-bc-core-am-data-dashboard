@@ -3,47 +3,123 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css" />
+  <!--Link de libreria de Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <!--Link de libreria de Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <!--Link GoogleFonts para las tipografias-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet">
+  <title>Laboratoria Dashboard</title>
+</head>
 <body>
   <div id="wrapper" class="toggled">
     <!--Menu lateral-->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a href="#menu-toggle"><img id="logo-lab" class="btn img-fluid"  src="IMAGENES/Laboratoria-Logo-RGB-BLANCO.png" alt="Responsive Image"/></a>
-          <a href="#"><img id="logo-menu" class="img-fluid"  src="IMAGENES/Laboratoria-Logo-RGB-BLANCO.png" alt="Responsive Image"/></a>
-        </li>
-        <li><a href="#" id="home">Home</a></li>
-        <li class="sidebar-brand">
-          <a href="#lima-toggle"id="lima-toggle">Lima</a>
-        </li>
-        <li><a href="#">México</a></li>
-        <li><a href="#">Perú</a></li>
-        <li><a href="#">Estudiantes</a></li>
-      </ul>
-    </div>
+    <nav id="sidebar">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#menu-toggle"><img id="logo-lab" class="btn img-fluid"  src="IMAGENES/Laboratoria-Logo-RGB-BLANCO.png" alt="Responsive Image"/></a>
+            <a href="#"><img id="logo-menu" class="img-fluid"  src="IMAGENES/Laboratoria-Logo-RGB-BLANCO.png" alt="Responsive Image"/></a>
+            <a href="#"><img id="profile-menu" class="img-fluid"  src="IMAGENES/Profile.jpg" alt="Responsive Image"/></a>
+          </li>
+          <!-- Aquí va la foto de profile -->
+          <!-- <li><a href="#" id="home">Home</a></li> -->
+          <!-- Aquí comienzan los menús colapsables -->
+          <li>  <!-- Quizás usar class="sidebar-brand"-->
+            <a href="#mexicoSubmenu" data-toggle="collapse" aria-expanded="false" class="toggle" id="mexico-toggle">México</a>
+          </li>
+          <li>
+            <a href="#limaSubmenu" data-toggle="collapse" aria-expanded="false" class="toggle" id="lima-toggle">Lima</a>
+          </li>
+          <li>
+            <a href="#santiagoSubmenu" data-toggle="collapse" aria-expanded="false" class="toggle" id="santiago-toggle">Santiago</a>
+          </li>
+          <!-- <li><a href="#"data-key data-gen>Estudiantes</a></li> -->
+        </ul>
+      </div>
+    </nav>
 
     <!--Contenido de la página-->
     <div id="page-content-wrapper">
-      <div class="container-fluid">
+      <section class="container-fluid">
         <!-- <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a> -->
         <a href="#menu-toggle" class="hamburger" id="menu-toggle">
           <i class="sr-only">Tonggle navigation</i>
           <i class="fa fa-bars" aria-hidden="true"></i>
         </a>
-        <h1>Ejemplo de título</h1>
-        <p>Este es un ejemplo de cómo se vería un texto ocupando todo lo que resta de la pantalla evitando la sidebar  ^_^ .
-           El menu collapasará en pantallas pequeñas y aparecerá en pantallas desktop</p>
-      </div>
-      </div>
-      <!--No quitar la etiqueta de #page-content-wrapper -->
-  </div>
-  </div>
-  <!--libreria de Bootstrap-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <header class="header col-lg-12">
+          <div class="row">
+            <h2><b>< Data Dashboard Estudiantes ></b></h2> <h5></h5>
+            <!-- <div class="col-2">México</div> -->
+          </div>
+        </header>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>-->
-  <script src="data.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>
+        <!--Código de prueba-->
+        <div class="row">
+          <div id="active" class="col-sm-12 col-lg-3 menu text-center">
+            <div id="div1"><span>45</span></div>
+            <div id="div2"><span>Estudiantes Activas</span></div>
+          </div>
+          <div class="col-sm-12 col-lg-8 text-center">
+            <h5>Rendimiento</h5>
+            <ul>
+              <li>Destacadas</li>
+              <li>Suficientes</li>
+              <li>Insuficientes</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Botón acordeón obtenido de la página de bootstrap, U_U  ) -->
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button id="fifth-generation" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Estudiantes Quinta Generación
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="fifth-generation-results"class="card-body">
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button id="fourth-generation" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Estudiantes Cuarta Generación
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div id="fourth-generation-results"class="card-body">
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button id="third-generation"class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Estudiantes Tercera Generación
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div id="third-generation-results"class="card-body">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--No quitar la etiqueta de #page-content-wrapper -->
+      </section>
+      <!--libreria de Bootstrap-->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      <script src="data.js"></script>
+      <script src="main.js"></script>
+    </body>
+    </html>
