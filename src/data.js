@@ -1,5 +1,4 @@
 // Funciones Globales de Data Dashboard
-
 // __Formula para obtener el status de las alumnas
 const statusP = (num) => {
   if (num <= 60) {
@@ -63,6 +62,23 @@ window.computeStudentsStats = (laboratoria) => {
 };
 
 window.computeGenerationsStats = (laboratoria) => {
+// DeVolver un nuevo arreglo de generaciones
+// Creamos el objeto primero
+// const generations = {
+//   generation: null,
+//   campus: null,
+//   count: null,
+//   average: null
+// };
+//
+// for (key in laboratoria) {
+//   generations.campus = keys;
+//   console.log(generations);
+//   for (item in laboratoria[key].generacion){
+//
+//   }
+// }
+
   const generation = [];
   // Haremos uso de Object.keys ya que no conseguimos crear un un arreglo de cada sede con sus generaciones
   // con for in sólo conseguimos los arreglos individuales de las generaciones.
