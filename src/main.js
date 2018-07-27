@@ -30,7 +30,7 @@ const getData = (data) => {
 getData(url);
 // --FUNCIÓN PARA Inyectar llamar los botones e inyectar la data a los eventos.
 const listeners = (generations, students) =>{
-  // Función para darle a todos los botones un evento de click.
+  // Función para darle a todos los botones de sedes un evento de click.
   const buttonsCampus = document.getElementsByClassName('campus-button');
   const arrayButtons = Array.from(buttonsCampus); // Identifica los tres botones en el menu
 
@@ -40,9 +40,20 @@ const listeners = (generations, students) =>{
       drawStatusSedes(generations, campus, students); // Invoco la función que me va a inprimir las sedes.
     });
   });
+
+  // Función para darle a todos los botones de generación un evento de click.
+  const buttonsGenerations = document.getElementsByClassName('generation');
+  const arrayButtonsGeneration = Array.from(buttonsGenerations);
+
+  arrayButtonsGeneration.forEach((button)=>{
+    button.addEventListener('click', (event)=>{
+      const generacion = event.target.innerHTML.toLowerCase();
+      drawStatusGeneration(generations, generacion, students);
+    });
+  });
 };
 
-// Función para imprimir las sedes con datos duros.
+// Función para asignar a los botones el valor de las sedes.
 const drawStatusSedes = (generations, campus, students) => {
   const filterGenration = generations.filter((generation) =>{
     // Los métodos siempre tienen un return
@@ -61,13 +72,13 @@ const drawStatusSedes = (generations, campus, students) => {
   const studentsByCountry = students.filter((student) =>{
     return student.campus === campus; // Es campus porque está comparando con el evento detonado arriba
   });
-  // console.log('Estudiantes por sede', studentsByCountry);
+  console.log('Estudiantes por sede', studentsByCountry);
   // Imprimo tabla de estudiantes
   const containerAllStudents = document.getElementById('print');
   containerAllStudents.innerHTML = '';
 
   studentsByCountry.forEach((student) =>{
-    console.log(`${student.name},${student.email},${student.stats.status},${student.stats.completedPercentage}`);
+    // console.log(`${student.name},${student.email},${student.stats.status},${student.stats.completedPercentage}`);
     containerAllStudents.innerHTML += `
       <tr>
       <th scope="col"> ${student.name}</th>
@@ -85,9 +96,16 @@ const drawStatusSedes = (generations, campus, students) => {
     // containerCountStudents.innerHTML =  gen.;
     // templateGeneration += `${gen.div1}`;
   });
-};;
+};
 
-
+const drawStatusGeneration = (generations, generacion, students) => {
+  console.log(students.name);
+  const filterGen = students.filter((generation) =>{
+    // Los métodos siempre tienen un return
+    return students.generation === generacion;// Es campus porque está comparando con el evento detonado arriba
+  });
+  console.log('Generaciones por sede', filterGen);
+};
 //
 //   students.forEach(student => {
 //     document.getElementById('third-generation').addEventListener('click', (event) => {
@@ -101,67 +119,6 @@ const drawStatusSedes = (generations, campus, students) => {
 //     });
 //   });
 // };
-
-// Funciones para Status
-let lowerStudentsArrLima = [];
-let averageStudentsArrLima = [];
-let overStudentsArrLima = [];
-let lowerStudentsArrMexico = [];
-let averageStudentsArrMexico = [];
-let overStudentsArrMexico = [];
-
-
-const studentsStatusLima = (students) =>{
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'lima') {
-      lowerStudentsArrLima.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'lima') {
-      averageStudentsArrLima.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'lima') {
-      overStudentsArrLima.push(student.name);
-    }
-  });
-};
-const studentsStatusMexico = (students) => {
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'mexico') {
-      lowerStudentsArrMexico.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'mexico') {
-      averageStudentsArrMexico.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'mexico') {
-      overStudentsArrMexico.push(student.name);
-    }
-  });
-};
-const studentsStatusSantiago = (students) => {
-  let lowerStudentsArrSantiago = [];
-  let averageStudentsArrSantiago = [];
-  let overStudentsArrSantiago = [];
-  const studentsSantiago = [];
-  const santiagoTotalStudents = (students) => {
-    students.forEach(student => {
-      if (student.campus === 'santiago') {
-        studentsSantiago.push(students.name);
-      }
-    });
-  };
-
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'santiago') {
-      lowerStudentsArrSantiago.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'santiago') {
-      averageStudentsArrSantiago.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'santiago') {
-      overStudentsArrSantiago.push(student.name);
-    }
-  });
-};
 // ___BOTONES___
 // Funciónes para los botones super califragilística y espialidosos que colapsan en menu Bootstrap
 $('#menu-toggle').click(function(event) {
