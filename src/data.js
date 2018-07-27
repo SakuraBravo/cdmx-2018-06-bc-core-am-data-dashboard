@@ -62,23 +62,6 @@ window.computeStudentsStats = (laboratoria) => {
 };
 
 window.computeGenerationsStats = (laboratoria) => {
-// DeVolver un nuevo arreglo de generaciones
-// Creamos el objeto primero
-// const generations = {
-//   generation: null,
-//   campus: null,
-//   count: null,
-//   average: null
-// };
-//
-// for (key in laboratoria) {
-//   generations.campus = keys;
-//   console.log(generations);
-//   for (item in laboratoria[key].generacion){
-//
-//   }
-// }
-
   const generation = [];
   // Haremos uso de Object.keys ya que no conseguimos crear un un arreglo de cada sede con sus generaciones
   // con for in sólo conseguimos los arreglos individuales de las generaciones.
@@ -118,6 +101,43 @@ window.computeGenerationsStats = (laboratoria) => {
   };
   // console.log(generation);
   return generation; // Tienen que regresar 9 objetos
+
+// Función antes de la refactorización (como documentación del esfuerzo realizado)
+// window.computeGenerationsStats = (laboratoria) => {
+//   const generation = [];
+//
+//   for (key in laboratoria) {
+//     let campus = key;
+//
+//     let generations = (laboratoria[key].generacion);
+//
+//
+//     for (gen in generations) {
+//
+//       let generationArr = generations[gen].estudiantes;
+//       for (averages of generationArr) {
+//         average = averages.progreso.porcentajeCompletado;
+//         // console.log(average);
+//         //   for (numbers in average) {
+//         //     result = average[numbers].reduce((i, j) => i + j);
+//         //     console.log(result);
+//         //   }
+//       };
+//
+// generationArr.forEach(item => {
+//         objeto = {
+//           campus: key,
+//           generation: gen,
+//           average: 0,
+//           count: 0,
+//         };
+//         generation.push(objeto);
+//       });
+//     }
+//   }
+//   console.log(generation);
+//   return generation;
+// };
 };
 
 window.sortStudents = (students, orderBy, orderDirection) => {
