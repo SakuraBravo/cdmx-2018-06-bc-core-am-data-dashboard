@@ -48,13 +48,14 @@ const listeners = (generations, students) =>{
   arrayButtonsGeneration.forEach((button)=>{
     button.addEventListener('click', (event)=>{
       const generacion = event.target.innerHTML.toLowerCase();
-      drawStatusGeneration(generations, generacion, students);
+      console.log(generacion);
     });
   });
 };
 
+// FUNCIONES PARA IMPRIMIR DATOS EN DOM
 // Función para asignar a los botones el valor de las sedes.
-const drawStatusSedes = (generations, campus, students) => {
+const drawStatusSedes = (generations, campus, students, generacion) => {
   const filterGenration = generations.filter((generation) =>{
     // Los métodos siempre tienen un return
     return generation.campus === campus;// Es campus porque está comparando con el evento detonado arriba
@@ -72,8 +73,15 @@ const drawStatusSedes = (generations, campus, students) => {
   const studentsByCountry = students.filter((student) =>{
     return student.campus === campus; // Es campus porque está comparando con el evento detonado arriba
   });
-  console.log('Estudiantes por sede', studentsByCountry);
-  // Imprimo tabla de estudiantes
+  // console.log('Estudiantes por sede', studentsByCountry);
+  //
+  // const studentsByGeneration = studentsByCountry.filter((gen)=>{
+  //   return generation.gen === generacion;
+  // });
+  // console.log('Estudiantes por generacion', studentsByGeneration);
+
+
+  // Imprimo tabla de estudiantes totales por sede
   const containerAllStudents = document.getElementById('print');
   containerAllStudents.innerHTML = '';
 
@@ -89,6 +97,9 @@ const drawStatusSedes = (generations, campus, students) => {
       `;
   });
 
+  // Imprimo datos de estudiantes por generación.
+  // console.log('Estudiantes por sede', studentsByCountry);
+
   const templateGeneration = '';
   filterGenration.forEach((gen) => {
     // const containerCountStudents = document.getElementById('div1');
@@ -98,14 +109,16 @@ const drawStatusSedes = (generations, campus, students) => {
   });
 };
 
-const drawStatusGeneration = (generations, generacion, students) => {
-  console.log(students.name);
-  const filterGen = students.filter((generation) =>{
-    // Los métodos siempre tienen un return
-    return students.generation === generacion;// Es campus porque está comparando con el evento detonado arriba
-  });
-  console.log('Generaciones por sede', filterGen);
-};
+console.log(drawStatusSedes(studentsByCountry()));
+
+// const drawStatusGeneration = (generations, campus, generacion, students) => {
+//   // console.log(students);
+//   const studentsBySede = students.filter((item) =>{
+//     return item.campus === campus; // Es campus porque está comparando con el evento detonado arriba
+//   });
+//   // console.log('Estudiantes por sede', studentsByCountry);
+// };
+
 //
 //   students.forEach(student => {
 //     document.getElementById('third-generation').addEventListener('click', (event) => {
