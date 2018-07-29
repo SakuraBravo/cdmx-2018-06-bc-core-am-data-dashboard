@@ -1,4 +1,4 @@
-describe('data', () => {
+describe('data', () => { // es el data.js
   it('debería exponer función computeStudentsStats en objeto global', () => {
     assert.isFunction(computeStudentsStats);
   });

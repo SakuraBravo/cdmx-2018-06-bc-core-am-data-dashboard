@@ -1,3 +1,4 @@
+
 // let correo = document.getElementById('email');
 // let llave = document.getElementById('password');
 // document.getElementById('enter').addEventListener('clik', userLaboratoria);
@@ -17,223 +18,120 @@ const getData = (data) => {
     .then(res => res.json())
     .then((laboratoria) => {
       // console.log(laboratoria);
-      const students = window.computeStudentsStats(laboratoria);
-      const generations = window.computeGenerationsStats(laboratoria);
-      window.sortStudents(students);
-      window.filterStudents(students);
+      const students = computeStudentsStats(laboratoria);
+      const generations = computeGenerationsStats(laboratoria);
 
-      drawStudentsByCampus(students);
-      drawStudentsByCampusMexico(students);
-      drawStudentsByCampusSantiago(students);
-      studentsStatusLima(students);
-      studentsStatusMexico(students);
-      studentsStatusSantiago(students);
-      // santiagoTotalStudents(students);
-      // const students = data.computeStudentsStats(laboratoria);
+      listeners(generations, students);
     })
     .catch((error) => {
       console.log('Houston we have a problem', error);
     });
 };
 getData(url);
+// --FUNCIÓN PARA Inyectar llamar los botones e inyectar la data a los eventos.
+const listeners = (generations, students) =>{
+  // Función para darle a todos los botones de sedes un evento de click.
+  const buttonsCampus = document.getElementsByClassName('campus-button');
+  const arrayButtons = Array.from(buttonsCampus); // Identifica los tres botones en el menu
 
-// let dataResults = document.getElementById('data-results');
-
-// Funciones para México
-const drawStudentsByCampusMexico = (students) =>{
-  document.getElementById('mexico-toggle').addEventListener('click', (event)=> {
-    document.getElementsByTagName('h5')[0].innerHTML = 'Status México';
-  });
-  students.forEach(student => {
-    document.getElementById('fifth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fifth-generation-results');
-      if (student.campus === 'mexico' && student.generation === 'quinta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status México Quinta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
-  });
-  students.forEach(student => {
-    document.getElementById('fourth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fourth-generation-results');
-      if (student.campus === 'mexico' && student.generation === 'cuarta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status México Cuarta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
+  arrayButtons.forEach((button)=>{
+    button.addEventListener('click', (event)=>{
+      const campus = event.target.innerHTML.toLowerCase();// Imprime el nombre del campus por cada botón, se le agregó un toLowerCase para que la info obtenida tenga similitud a la data del json
+      drawStatusSedes(generations, campus, students); // Invoco la función que me va a inprimir las sedes.
     });
   });
 
-  students.forEach(student => {
-    document.getElementById('third-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('third-generation-results');
-      if (student.campus === 'mexico' && student.generation === 'tercera') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status México Tercera Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
+  // Función para darle a todos los botones de generación un evento de click.
+  const buttonsGenerations = document.getElementsByClassName('generation');
+  const arrayButtonsGeneration = Array.from(buttonsGenerations);
+
+  arrayButtonsGeneration.forEach((button)=>{
+    button.addEventListener('click', (event)=>{
+      const generacion = event.target.innerHTML.toLowerCase();
+      console.log(generacion);
     });
   });
 };
 
+// FUNCIONES PARA IMPRIMIR DATOS EN DOM
+// Función para asignar a los botones el valor de las sedes.
+const drawStatusSedes = (generations, campus, students, generacion) => {
+  const filterGenration = generations.filter((generation) =>{
+    // Los métodos siempre tienen un return
+    return generation.campus === campus;// Es campus porque está comparando con el evento detonado arriba
+  });
+  // console.log('Generaciones por sede', filterGenration);
+  // Imprimo el número total de estudiantes por sede
+  const countStudentsCountry = filterGenration.reduce((valorAnterior, valorActual)=>{
+    return valorAnterior + valorActual.count;
+  }, 0);
+  const drawCountStudentsCountry = document.getElementById('div1');
+  drawCountStudentsCountry.innerHTML = countStudentsCountry; // Total de estudiantes por sede
 
-// Funciones para Lima
-const drawStudentsByCampus = (students) =>{
-  document.getElementById('lima-toggle').addEventListener('click', (event)=> {
-    document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima';
-  });
-  students.forEach(student => {
-    document.getElementById('fifth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fifth-generation-results');
-      if (student.campus === 'lima' && student.generation === 'quinta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima Quinta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
-  });
-  students.forEach(student => {
-    document.getElementById('fourth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fourth-generation-results');
-      if (student.campus === 'lima' && student.generation === 'cuarta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima Cuarta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
-  });
 
-  students.forEach(student => {
-    document.getElementById('third-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('third-generation-results');
-      if (student.campus === 'lima' && student.generation === 'tercera') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Lima Tercera Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
+  // Imprimo el número de estudiantes dependiendo de su campus y de su status
+  const studentsByCountry = students.filter((student) =>{
+    return student.campus === campus; // Es campus porque está comparando con el evento detonado arriba
   });
-};
+  // console.log('Estudiantes por sede', studentsByCountry);
+  //
+  // const studentsByGeneration = studentsByCountry.filter((gen)=>{
+  //   return generation.gen === generacion;
+  // });
+  // console.log('Estudiantes por generacion', studentsByGeneration);
 
-// Funciones para Santiago
-const drawStudentsByCampusSantiago = (students) =>{
-  document.getElementById('santiago-toggle').addEventListener('click', (event)=> {
-    document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago';
-  });
-  students.forEach(student => {
-    document.getElementById('fifth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fifth-generation-results');
-      if (student.campus === 'santiago' && student.generation === 'quinta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Quinta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
-  });
-  students.forEach(student => {
-    document.getElementById('fourth-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('fourth-generation-results');
-      if (student.campus === 'santiago' && student.generation === 'cuarta') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Cuarta Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
+
+  // Imprimo tabla de estudiantes totales por sede
+  const containerAllStudents = document.getElementById('print');
+  containerAllStudents.innerHTML = '';
+
+  studentsByCountry.forEach((student) =>{
+    // console.log(`${student.name},${student.email},${student.stats.status},${student.stats.completedPercentage}`);
+    containerAllStudents.innerHTML += `
+      <tr>
+      <th scope="col"> ${student.name}</th>
+           <th scope="col"> ${student.email}</th>
+           <th scope="col"> ${student.stats.status}</th>
+           <th scope="col"> ${student.stats.completedPercentage}%</th>
+      </tr>
+      `;
   });
 
-  students.forEach(student => {
-    document.getElementById('third-generation').addEventListener('click', (event) => {
-      let result = '';
-      let printStudents = document.getElementById('third-generation-results');
-      if (student.campus === 'santiago' && student.generation === 'tercera') {
-        document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Tercera Generación';
-        result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
-        printStudents.innerHTML += result;
-      }
-    });
+  // Imprimo datos de estudiantes por generación.
+  // console.log('Estudiantes por sede', studentsByCountry);
+
+  const templateGeneration = '';
+  filterGenration.forEach((gen) => {
+    // const containerCountStudents = document.getElementById('div1');
+    // console.log(gen);
+    // containerCountStudents.innerHTML =  gen.;
+    // templateGeneration += `${gen.div1}`;
   });
 };
 
-// Funciones para Status
-let lowerStudentsArrLima = [];
-let averageStudentsArrLima = [];
-let overStudentsArrLima = [];
-let lowerStudentsArrMexico = [];
-let averageStudentsArrMexico = [];
-let overStudentsArrMexico = [];
+console.log(drawStatusSedes(studentsByCountry()));
 
-
-const studentsStatusLima = (students) =>{
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'lima') {
-      lowerStudentsArrLima.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'lima') {
-      averageStudentsArrLima.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'lima') {
-      overStudentsArrLima.push(student.name);
-    }
-  });
-};
-const studentsStatusMexico = (students) => {
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'mexico') {
-      lowerStudentsArrMexico.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'mexico') {
-      averageStudentsArrMexico.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'mexico') {
-      overStudentsArrMexico.push(student.name);
-    }
-  });
-};
-const studentsStatusSantiago = (students) => {
-  let lowerStudentsArrSantiago = [];
-  let averageStudentsArrSantiago = [];
-  let overStudentsArrSantiago = [];
-  const studentsSantiago = [];
-  const santiagoTotalStudents = (students) => {
-    students.forEach(student => {
-      if (student.campus === 'santiago') {
-        studentsSantiago.push(students.name);
-      }
-    });
-  };
-
-  students.forEach(student => {
-    let studentPercentage = student.stats.completedPercentage;
-    let studentCampus = student.campus;
-    if (studentPercentage <= 60 && studentCampus === 'santiago') {
-      lowerStudentsArrSantiago.push(student.name);
-    } else if (studentPercentage <= 89 && studentCampus === 'santiago') {
-      averageStudentsArrSantiago.push(student.name);
-    } else if (studentPercentage >= 90 && studentCampus === 'santiago') {
-      overStudentsArrSantiago.push(student.name);
-    }
-  });
-  // console.log(lowerStudentsArrSantiago.length);
-};
-
-
-// console.log(studentsSantiago.length);
-
-//   let result = parseInt((arr1.length * 100)/arr2.length);
-//   return result
+// const drawStatusGeneration = (generations, campus, generacion, students) => {
+//   // console.log(students);
+//   const studentsBySede = students.filter((item) =>{
+//     return item.campus === campus; // Es campus porque está comparando con el evento detonado arriba
+//   });
+//   // console.log('Estudiantes por sede', studentsByCountry);
 // };
-// console.log(lowerStudentsArrSantiago.length,studentsSantiago.length);
-// averageStudents(lowerStudentsArrSantiago,studentsSantiago)
 
+//
+//   students.forEach(student => {
+//     document.getElementById('third-generation').addEventListener('click', (event) => {
+//       let result = '';
+//       let printStudents = document.getElementById('third-generation-results');
+//       if (student.campus === 'santiago' && student.generation === 'tercera') {
+//         document.getElementsByTagName('h5')[0].innerHTML = 'Status Santiago Tercera Generación';
+//         result += `<p>${student.name} ${student.email} ${student.stats.completedPercentage} ${student.stats.status}</p>`;
+//         printStudents.innerHTML += result;
+//       }
+//     });
+//   });
+// };
 // ___BOTONES___
 // Funciónes para los botones super califragilística y espialidosos que colapsan en menu Bootstrap
 $('#menu-toggle').click(function(event) {

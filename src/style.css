@@ -14,10 +14,12 @@ h2{
 
 }
 
-#div1 span{
+#div1 {
   font-size: 50pt;
-  color: #FF009E;}
-#div2 span{
+  color: #FF009E;
+}
+
+#div2 {
   font-size: 5pt
   color:red;
   position: relative;
@@ -51,7 +53,10 @@ sean compatibles con distintos navegadores*/
 /* Padding izquierdo de todo el contenido*/
 @media(max-width:768px) {
 
-  #wrapper.toggled {
+  /* #wrapper.toggled {
+    padding-left: 250px;
+  } */
+  #page-content-wrapper {
     padding-left: 250px;
   }
 }
@@ -150,11 +155,9 @@ sean compatibles con distintos navegadores*/
   font-size: 18px;
   line-height: 60px;
 }
-
 .sidebar-nav>.sidebar-brand a {
   color: #999999;
 }
-
 .sidebar-nav>.sidebar-brand a:hover {
   color: #fff;
   background: none;
@@ -196,7 +199,6 @@ sean compatibles con distintos navegadores*/
   /* #wrapper {
     padding-left: 0;
   }
-
   #wrapper.toggled {
     padding-left: 250px;
   } */
@@ -216,7 +218,7 @@ sean compatibles con distintos navegadores*/
     width: 100%
   }
 
-  #wrapper.toggled #page-content-wrapper {
+  #page-content-wrapper {
     padding-left: 180px;
     position: relative;
     margin-right: 0;
