@@ -391,9 +391,6 @@ Ya que es información que está actualizándose constantemente y es necesaria p
 ![Fotos Movil](https://goo.gl/9HDgHT)
 ![Fotos Movil](https://goo.gl/yPzRhG)
 
-![Fotos Movil](https://goo.gl/9HDgHT)
-
-
 ****
 
 ### Sandra Salinas Salinas
