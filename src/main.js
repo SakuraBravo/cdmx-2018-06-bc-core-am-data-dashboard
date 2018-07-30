@@ -19,7 +19,7 @@ const getData = (data) => {
       // console.log(laboratoria);
       const students = computeStudentsStats(laboratoria);
       const generations = computeGenerationsStats(laboratoria);
-      const sorted = sortStudents(laboratoria);
+      sortStudents(laboratoria);
       // const avgStatus = studentsAvg(laboratoria);
       listeners(generations, students);
     })

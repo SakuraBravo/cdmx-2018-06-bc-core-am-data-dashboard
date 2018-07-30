@@ -187,7 +187,7 @@ window.computeGenerationsStats = (laboratoria) => {
 //   return generation;
 // };
 };
-
+// FORMULA PARA MOSTRAR ALUMNAS POR NOMBRE ASCEDENDTE Y DESCENDENTE, ES UN METODO DE JAVASCRIPT LLAMADO SORT
 window.sortStudents = (students, orderBy, orderDirection) => {
   if (orderBy === 'name' && orderDirection === 'ASC') {
     let studentsName = students.sort(a, b => {
@@ -218,7 +218,7 @@ window.sortStudents = (students, orderBy, orderDirection) => {
     return studentsName;
   };
 };
-
+// FORMULA PARA MOSTRAR FILTRAR ALUMNAS, ES UN METODO DE JAVASCRIPT LLAMADO FILTER
 window.filterStudents = (students, search) => {
   let findStudent = students.filter(element => {
     return element.name === search;
