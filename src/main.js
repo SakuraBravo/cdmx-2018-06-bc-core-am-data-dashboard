@@ -19,7 +19,7 @@ const getData = (data) => {
       // console.log(laboratoria);
       const students = computeStudentsStats(laboratoria);
       const generations = computeGenerationsStats(laboratoria);
-      sortStudents(laboratoria);
+      const sorted = sortStudents(laboratoria);
       // const avgStatus = studentsAvg(laboratoria);
       listeners(generations, students);
     })
@@ -55,61 +55,164 @@ const listeners = (generations, students) =>{
       });
     });
   });
+
   // PARA CUESTIONES PRACTICAS SE MUESTRA ESTA FUNCION PARA DEMOSTRAR QUE SE SABE ACCEDER A LA DATA
   // EN EL FUTURO ESPERAMOS REFACTORIZAR PARA HACER UN CODIGO MAS SOFISTICADO
+  let drawStudentsByGen = document.getElementById('print');
   students.map(student => {
     if (student.campus === 'mexico' && student.generation === 'quinta') {
-      const containerAllStudents = document.getElementById('print');
+      // const containerAllStudents = document.getElementById('print');
       document.getElementById('fifth-mexico').addEventListener('click', (ev) => {
-        // hay que remover childs para que quite las alumnas ateriores e imprim
-        // containerAllStudents.innerHTML += `
-        //   <tr>
-        //   <th scope="col"> ${student.name}</th>
-        //        <th scope="col"> ${student.email}</th>
-        //        <th scope="col"> ${student.stats.status}</th>
-        //        <th scope="col"> ${student.stats.completedPercentage}%</th>
-        //   </tr>
-        //   `;
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        // hay que remover childs para que quite las alumnas ateriores e IMPRIMIR
+        drawStudentsByGen.innerHTML += `
+        <tr>
+        <th scope="col"> ${student.name}</th>
+             <th scope="col"> ${student.email}</th>
+             <th scope="col"> ${student.stats.status}</th>
+             <th scope="col"> ${student.stats.completedPercentage}%</th>
+        </tr>
+        `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'mexico' && student.generation === 'cuarta') {
       document.getElementById('fourth-mexico').addEventListener('click', (ev) => {
-        // containerAllStudents.innerHTML += `
-        //   <tr>
-        //   <th scope="col"> ${student.name}</th>
-        //        <th scope="col"> ${student.email}</th>
-        //        <th scope="col"> ${student.stats.status}</th>
-        //        <th scope="col"> ${student.stats.completedPercentage}%</th>
-        //   </tr>
-        //   `;
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'mexico' && student.generation === 'tercera') {
       document.getElementById('third-mexico').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'lima' && student.generation === 'quinta') {
       document.getElementById('fifth-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'lima' && student.generation === 'cuarta') {
       document.getElementById('fourth-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'lima' && student.generation === 'tercera') {
       document.getElementById('third-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'santiago' && student.generation === 'quinta') {
       document.getElementById('fifth-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'santiago' && student.generation === 'cuarta') {
       document.getElementById('fourth-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'santiago' && student.generation === 'tercera') {
       document.getElementById('third-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
         console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     }
@@ -172,7 +275,7 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
     // templateGeneration += `${gen.div1}`;
   });
 };
-document.getElementById('sort').addEventListener('click', sortStudents());
+
 
 // console.log(drawStatusSedes(studentsByCountry()));
 

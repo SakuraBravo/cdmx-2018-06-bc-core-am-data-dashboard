@@ -201,7 +201,7 @@ window.sortStudents = (students, orderBy, orderDirection) => {
         return 0;
       } ;
     });
-    return studentsName;
+    return studentsName
   }
   if (orderBy === 'name' && orderDirection === 'DESC') {
     let studentsName = students.sort(a, b => {
