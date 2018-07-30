@@ -134,13 +134,16 @@ sean compatibles con distintos navegadores*/
   text-decoration: none;
   /* color: #FF009E; */
   /* color: #56F89A; */
-  color: #FFE521;
-  background: rgba(255, 255, 255, 0.2);
+  /*color: #FFE521; */
+  color: #262626;
+  border-left : 10px solid #FF009E;
+  background: #56F89A;;
 }
 
 .sidebar-nav li a:active{
   /* color: #56F89A; */
-  color: #fff;
+  color: #262626;
+  font-weight: 500;
 }
 .sidebar-nav li a:focus {
   text-decoration: none;

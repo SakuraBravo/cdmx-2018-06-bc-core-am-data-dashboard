@@ -19,8 +19,8 @@ const getData = (data) => {
       // console.log(laboratoria);
       const students = computeStudentsStats(laboratoria);
       const generations = computeGenerationsStats(laboratoria);
-      const sort = sortStudents(laboratoria)
-
+      const sorted = sortStudents(laboratoria);
+      // const avgStatus = studentsAvg(laboratoria);
       listeners(generations, students);
     })
     .catch((error) => {
@@ -48,9 +48,48 @@ const listeners = (generations, students) =>{
   arrayButtonsGeneration.forEach((button)=>{
     button.addEventListener('click', (event)=>{
       const generacion = event.target.innerHTML.toLowerCase();
-      console.log(students['name']);
+      console.log(generacion);
+      generations.forEach(campus =>{
+        const studentsByCampus = campus.count;
+        // console.log(studentsByCampus);
+      });
     });
   });
+
+  students.map(student => {
+    if (student.campus === 'mexico' && student.generation === 'quinta') {
+      const containerAllStudents = document.getElementById('print');
+      document.getElementById('fifth-mexico').addEventListener('click', (ev) => {
+        // containerAllStudents.innerHTML += `
+        //   <tr>
+        //   <th scope="col"> ${student.name}</th>
+        //        <th scope="col"> ${student.email}</th>
+        //        <th scope="col"> ${student.stats.status}</th>
+        //        <th scope="col"> ${student.stats.completedPercentage}%</th>
+        //   </tr>
+        //   `;
+        console.log(student.name);
+      });
+    } else if (student.campus === 'mexico' && student.generation === 'cuarta') {
+      document.getElementById('fourth-mexico').addEventListener('click', (ev) => {
+        // containerAllStudents.innerHTML += `
+        //   <tr>
+        //   <th scope="col"> ${student.name}</th>
+        //        <th scope="col"> ${student.email}</th>
+        //        <th scope="col"> ${student.stats.status}</th>
+        //        <th scope="col"> ${student.stats.completedPercentage}%</th>
+        //   </tr>
+        //   `;
+        console.log(student.name);
+      });
+    } else if (student.campus === 'mexico' && student.generation === 'tercera') {
+      document.getElementById('third-mexico').addEventListener('click', (ev) => {
+        console.log(student.name);
+      });
+    }
+  });
+  // drawCountStudentsGen = document.getElementById('div1');
+  // drawCountStudentsGen.innerHTML = campus.count
 };
 
 // FUNCIONES PARA IMPRIMIR DATOS EN DOM
@@ -67,7 +106,6 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
   }, 0);
   const drawCountStudentsCountry = document.getElementById('div1');
   drawCountStudentsCountry.innerHTML = countStudentsCountry; // Total de estudiantes por sede
-
 
   // Imprimo el número de estudiantes dependiendo de su campus y de su status
   const studentsByCountry = students.filter((student) =>{
@@ -96,6 +134,7 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
       `;
   });
 
+
   // Imprimo datos de estudiantes por generación.
   // console.log('Estudiantes por sede', studentsByCountry);
 
@@ -107,8 +146,9 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
     // templateGeneration += `${gen.div1}`;
   });
 };
+document.getElementById('sort').addEventListener('click', sortStudents());
 
-//console.log(drawStatusSedes(studentsByCountry()));
+// console.log(drawStatusSedes(studentsByCountry()));
 
 // const drawStatusGeneration = (generations, campus, generacion, students) => {
 //   // console.log(students);

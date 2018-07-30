@@ -28,13 +28,13 @@
             <a href="#mexicoSubmenu" data-toggle="collapse" aria-expanded="false" class="toggle campus-button" id="mexico-toggle">Mexico</a>
             <ul class="collapse" id="mexicoSubmenu">
               <li>
-                <a href="#" data-campus="mexico" data-generation= "quinta" class="generation">Quinta</a>
+                <a href="#" id="fifth-mexico" data-campus="mexico" data-generation= "quinta" class="generation">Quinta</a>
               </li>
               <li>
-                <a href="#" data-key="mexico" data-gen= "cuarta" class="generation">Cuarta</a>
+                <a href="#" id="fourth-mexico" data-key="mexico" data-gen= "cuarta" class="generation">Cuarta</a>
               </li>
               <li>
-                <a href="#" data-key="mexico" data-gen= "tercera" class="generation">Tercera</a>
+                <a href="#" id="third-mexico" data-key="mexico" data-gen= "tercera" class="generation">Tercera</a>
               </li>
             </ul>
           </li>
@@ -99,17 +99,17 @@
             <h5>Rendimiento</h5>
             <div class="form-group">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 30%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Destacadas</div>
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 30%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="above">Destacadas</div>
               </div>
             </div>
             <div class="form-group">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 55%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Suficientes</div>
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 55%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="average">Suficientes</div>
               </div>
             </div>
             <div class="form-group">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 15%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Insuficientes</div>
+                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 15%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="low">Insuficientes</div>
               </div>
             </div>
           </div>
@@ -118,6 +118,7 @@
 
       <!-- Botón acordeón obtenido de la página de bootstrap, U_U  ) -->
       <table id="table" class="table-bordered col-md-8">
+            <button id="sort" type="button" class="btn col-8 btn-info" scope="col"><i class="fa fa-fw fa-sort"></i> </button>
             <thead class="thead">
               <tr>
                 <th scope="col">Nombre</th>
