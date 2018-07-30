@@ -213,27 +213,113 @@ __1. Cuáles crees que son los datos más importantes a tener en cuenta para el 
 
 __2. Lo que los usuarios esperan obtener:__
 
+  - * Visualización clara de los datos
+  - * Poder acceder a la data de lo general a lo particular
+  - * Poder comparar la data con facilidad
+  - * Una aplicación sólo para uso interno
 
 __3. Insights:__
 
+- * Debe de ser un producto interno
+- * Debe de ser consiso
+- * Debe de informar a un solo vistazo
+- * Debe de permitir comparar fácilmente la data
 
 
 __4. Data proporcionada:__
 
-     -_Data relacionada a los cursos:_
+La data proporcionada para este ejercicio es un archivo JSON que debemos implementar en un servidor local o desde un link en un servidor externo. Este bloque de data tipo árbol cuenta con información dentro de objetos y arreglos de tres sedes de Laboratoria, Lima, México y Santiago, tres generaciones de cada una de las sedes, información de blockes de alumanas en cada generación.
 
-__5. Insights del negocio:__
 
-### **3. Ideación**
-(Acá se comienza a pensar esa solución tomando en cuenta la información recopilada y procesada)
+### **3.Ideación y Prototipado**
 
-### **4. Prototipado**
-(Esta es la fase creativa, donde se comienza a construir el Data dashboard con la información obtenida de las fases anteriores. Se reafirma crear la experiencia de usuario, donde la solución resuelve necesidades y facilita la vida)
+Tomando en cuenta el primer acercamiento con el usuario y la investigación de las soluciones más populares, tenemos claro que nuestra solución requiere ser visualmente impactante, con un menú accesible y a la mano y exclusiva para uso interno de la empresa por lo que uno de nuestros requerimientos principales es que contenga un LogIn que permita restringir la entrada a la plataforma, también creemos que un menú lateral solucionará el problema de contener toda la información necesaria en un sólo sitio, además de que nuestro usuario está acostumbrado a utilizar plataformas como Facebook y Slack que contienen mucha información desplegada con infinity scrolls,  y uso de sidebars por lo que la curva de aprendizaje será mínima.
 
-Sketch: (Adjuntar liga)  
+Nuestro primer acercamiento es idealizado y busca darle al usuario sus principales necesidades y mucho más. (Primer nivel de Scketching) También ya estamos considerando utilizar los colores institucionales de Laboratoria.
+
+![Primeros Sketch](https://goo.gl/TM9Lt3)
+![Primeros Sketch](https://goo.gl/FCM4Th)
+![Primeros Sketch](https://goo.gl/ux2yfi)
 
 [Prototipo en figma](https://goo.gl/PSbDaS)
 
-### **5. User testing**
-(Si deseas validar tu propuesta, acércate a tu usuario y que te de feedback con el fin de mejorar tu producto en beneficio del negocio y de tu usuarix).
+### **4. User testing**
+
+Realizamos un user test de tareas concretas: 
+  * Encontrar información en la página
+  * Leer textos
+  * Leer gráficos
+
+Los insights de la prueba de usuario fueron:
+
+	* Replantear nuestro diseño a la información con la que contamos: Aunque es emocionante buscar la solución ideal, tenemos que situarnos con la información que contamos (JSON).
+	* Dar un paso atrás y replantear el sketch en blanco y negro para no alterar nuestra percepción al usar colores en este proceso.
+
+También, dentro de nuestro proceso, caímos en cuenta que teníamos que buscar la solución más sencilla y efectiva que nos permitiera aprender conjuntamente tanto la parte de investigación y diseño como de desarrollo e implementación.
+
+![Fotos de la segunda vuelta de scketching](https://goo.gl/DFWHc5)
+![Fotos de la segunda vuelta de scketching](https://goo.gl/9f7n7t)
+![Fotos de la segunda vuelta de scketching](https://goo.gl/Hv43G4)
+
+__SINTESIS FINAL DE LA INTERFAZ__
+![Fotos de la segunda vuelta de scketching](https://goo.gl/osvXTo)
+
+
+### **5. User Interfaz**
+
+Al trabajar un producto directamente relacionado con una empresa en específico, tenemos que que tomar en cuenta cómo se comunica gráficamente en la actualidad y si cuenta con un manual de identidad. Afortunadamente Laboratoria realizó una actualización de su identidad gráfica y podemos hacer uso de ella:
+
+Su color primario es un amarillo brillante (#FFE521) y utiliza como secundario para dar acentos el magenta (#FF009E) y el menta (#56F89A) además de un negro como auxiliar, pues es dónde también se presenta el logo.
+
+
+![Colores Laboratoria](https://goo.gl/H4NhWK)
+
+En tipografía utilizan Bitter para los títulos y Open Sans para contenido y el logo, nosotras utilizamos únicamente Open Sans en nuestra app pues al ser un producto responsive tenemos que asegurar su fácil lectura en diferentes dispositivos.
+
+![Tipografía de Laboratoria](https://goo.gl/N4uBwt)
+
+Para nuestra app caímos en cuenta de que tenía que diferenciarse de otras interfaces de Laboratoria, para que los usuarios no se confundieran entre plataformas, específicamente al LMS por lo que decidimos utilizar el negro como base, y el amarillo, magenta y verde para dar acentos.
+
+![LMS](https://goo.gl/zVnKEt)
+![Interfaz](https://goo.gl/TASjqp)
+
+
+En su implementación  utilizamos Bootstrap 4.0  y CSS para realizar el diseño y estilo de la aplicación.
+
+### **6. Implementación**
+
+__Recursos:__
+
+* En su implementación  utilizamos Bootstrap 4.0  y CSS para realizar el diseño y estilo de la aplicación.
+
+* Realizamos investigación sobre cómo manejar Fetch, JSON además de sesiones de Office Hours y mucha prueba y error.
+
+* Procesador de textos Atom.
+
+* LMS
+
+* El torneo de CodeFight
+
+__Usuario:__
+
+Al ser una aplicación interna que maneja información confidencial, se implementó el uso de un Login al cual puedes entrar con un correo institucional de Laboratoria y una contraseña que se te asignará previamente y entregará por correo.
+Para tener control de los ingresos, no es posible cambiar la contraseña, tiene que ser resignada, así también puede ser vetada si la persona hace uso indebido de la información.
+
+![Foto Login](https://goo.gl/qiNd4C)
+
+__MENU:__
+El menú sidebar es sencillo y collapsable en dispositivos móviles, permite tener acceso a las sedes y confirmar dando la bienvenida al usuario. Es un menú que puede crecer a la par de que crezca la empresa.
+
+__Botones:__
+Colocamos la información destacada a primera vista, el usuario entrará directamente a la sede a la que pertenece y podrá acceder fácilmente a la misma información de otras sedes sólo con un click
+
+__Responsive:__
+Ya que es información que está actualizándose constantemente y es necesaria para tomar decisiones en procesos internos, la aplicación puede visualizarse tanto en dispositivos móviles como en desktop.
+
+![Fotos Movil](https://goo.gl/9HDgHT)
+![Fotos Movil](https://goo.gl/yPzRhG)
+
+
+
+
 ****
