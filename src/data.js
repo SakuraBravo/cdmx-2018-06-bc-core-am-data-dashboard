@@ -20,6 +20,7 @@ let result;
 // Formula para obtener el arreglo de objeto de cada estudiante
 window.computeStudentsStats = (laboratoria) => {
   const students = [];
+  // CREACION DE ESTOS ARRAYS PARA REDONDEAR CON EL LARGO TOTAL DEL ARRAY STUDENTS Y PODER INYECTARLO EN LAS BARRAS DE PROGRESO
   const mexicoLowStatus = [];
   const mexicoAvgStatus = [];
   const mexicoOverStatus = [];
