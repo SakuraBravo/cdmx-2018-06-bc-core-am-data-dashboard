@@ -51,15 +51,17 @@ const listeners = (generations, students) =>{
       console.log(generacion);
       generations.forEach(campus =>{
         const studentsByCampus = campus.count;
-        // console.log(studentsByCampus);
+        console.log(studentsByCampus);
       });
     });
   });
-
+  // PARA CUESTIONES PRACTICAS SE MUESTRA ESTA FUNCION PARA DEMOSTRAR QUE SE SABE ACCEDER A LA DATA
+  // EN EL FUTURO ESPERAMOS REFACTORIZAR PARA HACER UN CODIGO MAS SOFISTICADO
   students.map(student => {
     if (student.campus === 'mexico' && student.generation === 'quinta') {
       const containerAllStudents = document.getElementById('print');
       document.getElementById('fifth-mexico').addEventListener('click', (ev) => {
+        // hay que remover childs para que quite las alumnas ateriores e imprim
         // containerAllStudents.innerHTML += `
         //   <tr>
         //   <th scope="col"> ${student.name}</th>
@@ -68,7 +70,7 @@ const listeners = (generations, students) =>{
         //        <th scope="col"> ${student.stats.completedPercentage}%</th>
         //   </tr>
         //   `;
-        console.log(student.name);
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'mexico' && student.generation === 'cuarta') {
       document.getElementById('fourth-mexico').addEventListener('click', (ev) => {
@@ -80,11 +82,35 @@ const listeners = (generations, students) =>{
         //        <th scope="col"> ${student.stats.completedPercentage}%</th>
         //   </tr>
         //   `;
-        console.log(student.name);
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     } else if (student.campus === 'mexico' && student.generation === 'tercera') {
       document.getElementById('third-mexico').addEventListener('click', (ev) => {
-        console.log(student.name);
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'quinta') {
+      document.getElementById('fifth-lima').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'cuarta') {
+      document.getElementById('fourth-lima').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'tercera') {
+      document.getElementById('third-lima').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'quinta') {
+      document.getElementById('fifth-santiago').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'cuarta') {
+      document.getElementById('fourth-santiago').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'tercera') {
+      document.getElementById('third-santiago').addEventListener('click', (ev) => {
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
       });
     }
   });
