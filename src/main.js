@@ -1,4 +1,3 @@
-
 // let correo = document.getElementById('email');
 // let llave = document.getElementById('password');
 // document.getElementById('enter').addEventListener('clik', userLaboratoria);
@@ -20,7 +19,8 @@ const getData = (data) => {
       // console.log(laboratoria);
       const students = computeStudentsStats(laboratoria);
       const generations = computeGenerationsStats(laboratoria);
-
+      const sorted = sortStudents(laboratoria);
+      // const avgStatus = studentsAvg(laboratoria);
       listeners(generations, students);
     })
     .catch((error) => {
@@ -49,8 +49,178 @@ const listeners = (generations, students) =>{
     button.addEventListener('click', (event)=>{
       const generacion = event.target.innerHTML.toLowerCase();
       console.log(generacion);
+      generations.forEach(campus =>{
+        const studentsByCampus = campus.count;
+        document.getElementById('div1').innerHTML = studentsByCampus
+        console.log(studentsByCampus);
+      });
     });
   });
+
+  // PARA CUESTIONES PRACTICAS SE MUESTRA ESTA FUNCION PARA DEMOSTRAR QUE SE SABE ACCEDER A LA DATA
+  // EN EL FUTURO ESPERAMOS REFACTORIZAR PARA HACER UN CODIGO MAS SOFISTICADO
+
+  let drawStudentsByGen = document.getElementById('print');
+  students.map(student => {
+    if (student.campus === 'mexico' && student.generation === 'quinta') {
+      // const containerAllStudents = document.getElementById('print');
+      document.getElementById('fifth-mexico').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        // hay que remover childs para que quite las alumnas ateriores e IMPRIMIR
+        drawStudentsByGen.innerHTML += `
+        <tr>
+        <th scope="col"> ${student.name}</th>
+             <th scope="col"> ${student.email}</th>
+             <th scope="col"> ${student.stats.status}</th>
+             <th scope="col"> ${student.stats.completedPercentage}%</th>
+        </tr>
+        `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'mexico' && student.generation === 'cuarta') {
+      document.getElementById('fourth-mexico').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'mexico' && student.generation === 'tercera') {
+      document.getElementById('third-mexico').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'quinta') {
+      document.getElementById('fifth-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'cuarta') {
+      document.getElementById('fourth-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'lima' && student.generation === 'tercera') {
+      document.getElementById('third-lima').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'quinta') {
+      document.getElementById('fifth-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'cuarta') {
+      document.getElementById('fourth-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    } else if (student.campus === 'santiago' && student.generation === 'tercera') {
+      document.getElementById('third-santiago').addEventListener('click', (ev) => {
+        if (document.getElementById('print').hasChildNodes()) {
+          while (drawStudentsByGen.hasChildNodes()) {
+            drawStudentsByGen.removeChild(drawStudentsByGen.lastChild);
+          }
+        }
+        drawStudentsByGen.innerHTML += `
+          <tr>
+          <th scope="col"> ${student.name}</th>
+               <th scope="col"> ${student.email}</th>
+               <th scope="col"> ${student.stats.status}</th>
+               <th scope="col"> ${student.stats.completedPercentage}%</th>
+          </tr>
+          `;
+        console.log(`${student.name} ${student.email} ${student.stats.status} ${student.stats.completedPercentage}%`);
+      });
+    }
+  });
+  // drawCountStudentsGen = document.getElementById('div1');
+  // drawCountStudentsGen.innerHTML = campus.count
 };
 
 // FUNCIONES PARA IMPRIMIR DATOS EN DOM
@@ -65,10 +235,8 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
   const countStudentsCountry = filterGenration.reduce((valorAnterior, valorActual)=>{
     return valorAnterior + valorActual.count;
   }, 0);
-
   const drawCountStudentsCountry = document.getElementById('div1');
   drawCountStudentsCountry.innerHTML = countStudentsCountry; // Total de estudiantes por sede
-
 
   // Imprimo el número de estudiantes dependiendo de su campus y de su status
   const studentsByCountry = students.filter((student) =>{
@@ -85,7 +253,6 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
   // Imprimo tabla de estudiantes totales por sede
   const containerAllStudents = document.getElementById('print');
   containerAllStudents.innerHTML = '';
-
   studentsByCountry.forEach((student) =>{
     // console.log(`${student.name},${student.email},${student.stats.status},${student.stats.completedPercentage}`);
     containerAllStudents.innerHTML += `
@@ -98,6 +265,7 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
       `;
   });
 
+
   // Imprimo datos de estudiantes por generación.
   // console.log('Estudiantes por sede', studentsByCountry);
 
@@ -109,6 +277,9 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
     // templateGeneration += `${gen.div1}`;
   });
 };
+
+
+// console.log(drawStatusSedes(studentsByCountry()));
 
 // const drawStatusGeneration = (generations, campus, generacion, students) => {
 //   // console.log(students);

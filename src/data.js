@@ -20,6 +20,16 @@ let result;
 // Formula para obtener el arreglo de objeto de cada estudiante
 window.computeStudentsStats = (laboratoria) => {
   const students = [];
+  // CREACION DE ESTOS ARRAYS PARA REDONDEAR CON EL LARGO TOTAL DEL ARRAY STUDENTS Y PODER INYECTARLO EN LAS BARRAS DE PROGRESO
+  const mexicoLowStatus = [];
+  const mexicoAvgStatus = [];
+  const mexicoOverStatus = [];
+  const limaLowStatus = [];
+  const limaAvgStatus = [];
+  const limaOverStatus = [];
+  const santiagoLowStatus = [];
+  const santiagoAvgStatus = [];
+  const santiagoOverStatus = [];
   // Decidimos usar for in en lugar de Object.keys por que ya hay un método para
   // iterar dentro de un objeto así que no es necesario convertirlo a un arreglo.
   for (key in laboratoria) {
@@ -54,15 +64,52 @@ window.computeStudentsStats = (laboratoria) => {
           },
         };
         students.push(obj);
+        // Formula para crear un arreglo con cada estudiante que cumpla los parametros por Sede y Status(Insuficiente, Suficiente, Destacado)
+        if (campus === 'mexico' && obj.stats.status === 'Insuficiente') {
+          mexicoLowStatus.push(obj.name);
+        } else if (campus === 'mexico' && obj.stats.status === 'Suficiente') {
+          mexicoAvgStatus.push(obj.name);
+        } else if (campus === 'mexico' && obj.stats.status === 'Destacado') {
+          mexicoOverStatus.push(obj.name);
+        };
+        if (campus === 'lima' && obj.stats.status === 'Insuficiente') {
+          limaLowStatus.push(obj.name);
+        } else if (campus === 'lima' && obj.stats.status === 'Suficiente') {
+          limaAvgStatus.push(obj.name);
+        } else if (campus === 'lima' && obj.stats.status === 'Destacado') {
+          limaOverStatus.push(obj.name);
+        };
+        if (campus === 'mexico' && obj.stats.status === 'Insuficiente') {
+          santiagoLowStatus.push(obj.name);
+        } else if (campus === 'mexico' && obj.stats.status === 'Suficiente') {
+          santiagoAvgStatus.push(obj.name);
+        } else if (campus === 'mexico' && obj.stats.status === 'Destacado') {
+          santiagoOverStatus.push(obj.name);
+        };
+        // console.log(campus);
+        //  console.log(obj.stats.status);
+        // console.log(obj.name);
       });
     }
   }
   // console.log('Array con Objetos', students);
+  console.log('Mexico Insuficientes', mexicoLowStatus);
+  console.log('Mexico Suficientes', mexicoAvgStatus);
+  console.log('Mexico Destacadas', mexicoOverStatus);
+  console.log('Lima Insuficientes', limaLowStatus);
+  console.log('Lima Suficientes', limaAvgStatus);
+  console.log('Lima Destacadas', limaOverStatus);
+  console.log('Santiago Insuficientes', santiagoLowStatus);
+  console.log('Santiago Suficientes', santiagoAvgStatus);
+  console.log('Santiago Destacadas', santiagoOverStatus);
   return students;
 };
 
 window.computeGenerationsStats = (laboratoria) => {
   const generation = [];
+  const mexicoGen = [];
+  const limaGen = [];
+  const santiagoGen = [];
   // Haremos uso de Object.keys ya que no conseguimos crear un un arreglo de cada sede con sus generaciones
   // con for in sólo conseguimos los arreglos individuales de las generaciones.
 
@@ -99,8 +146,9 @@ window.computeGenerationsStats = (laboratoria) => {
       generation.push(obj);
     };
   };
-  // console.log(generation);
+  //  console.log(generation);
   return generation; // Tienen que regresar 9 objetos
+
 
 // Función antes de la refactorización (como documentación del esfuerzo realizado)
 // window.computeGenerationsStats = (laboratoria) => {
@@ -139,14 +187,41 @@ window.computeGenerationsStats = (laboratoria) => {
 //   return generation;
 // };
 };
-
+// FORMULA PARA MOSTRAR ALUMNAS POR NOMBRE ASCEDENDTE Y DESCENDENTE, ES UN METODO DE JAVASCRIPT LLAMADO SORT
 window.sortStudents = (students, orderBy, orderDirection) => {
-  // console.log(students);
+  if (orderBy === 'name' && orderDirection === 'ASC') {
+    let studentsName = students.sort(a, b => {
+      let currentName = a.name.toUpperCase();
+      let newName = b.name.toUpperCase();
+      if (currentName < newName) {
+        return -1;
+      } else if (currentName > newName) {
+        return 1;
+      } else {
+        return 0;
+      } ;
+    });
+    return studentsName;
+  }
+  if (orderBy === 'name' && orderDirection === 'DESC') {
+    let studentsName = students.sort(a, b => {
+      let currentName = a.name.toUpperCase();
+      let newName = b.name.toUpperCase();
+      if (currentName < newName) {
+        return 1;
+      } else if (currentName > newName) {
+        return -1;
+      } else {
+        return 0;
+      } ;
+    });
+    return studentsName;
+  };
 };
-
+// FORMULA PARA MOSTRAR FILTRAR ALUMNAS, ES UN METODO DE JAVASCRIPT LLAMADO FILTER
 window.filterStudents = (students, search) => {
   let findStudent = students.filter(element => {
-    return element.name == search;
+    return element.name === search;
   });
   return findStudent;
 };
