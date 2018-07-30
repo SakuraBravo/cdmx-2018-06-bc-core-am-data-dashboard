@@ -51,6 +51,7 @@ const listeners = (generations, students) =>{
       console.log(generacion);
       generations.forEach(campus =>{
         const studentsByCampus = campus.count;
+        document.getElementById('div1').innerHTML = studentsByCampus
         console.log(studentsByCampus);
       });
     });
@@ -58,6 +59,7 @@ const listeners = (generations, students) =>{
 
   // PARA CUESTIONES PRACTICAS SE MUESTRA ESTA FUNCION PARA DEMOSTRAR QUE SE SABE ACCEDER A LA DATA
   // EN EL FUTURO ESPERAMOS REFACTORIZAR PARA HACER UN CODIGO MAS SOFISTICADO
+
   let drawStudentsByGen = document.getElementById('print');
   students.map(student => {
     if (student.campus === 'mexico' && student.generation === 'quinta') {
