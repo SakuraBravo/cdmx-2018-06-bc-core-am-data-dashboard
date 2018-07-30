@@ -51,7 +51,7 @@ const listeners = (generations, students) =>{
       console.log(generacion);
       generations.forEach(campus =>{
         const studentsByCampus = campus.count;
-        document.getElementById('div1').innerHTML = studentsByCampus
+        document.getElementById('div1').innerHTML = studentsByCampus;
         console.log(studentsByCampus);
       });
     });
