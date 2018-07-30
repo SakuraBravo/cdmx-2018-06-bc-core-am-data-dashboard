@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 describe('data', () => {
+=======
+describe('data', () => { // es el data.js
+>>>>>>> 2afaa4875135d1028bc87ebbeb5c8c47e75ab0fa
   it('debería exponer función computeStudentsStats en objeto global', () => {
     assert.isFunction(computeStudentsStats);
   });
