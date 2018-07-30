@@ -65,6 +65,7 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
   const countStudentsCountry = filterGenration.reduce((valorAnterior, valorActual)=>{
     return valorAnterior + valorActual.count;
   }, 0);
+
   const drawCountStudentsCountry = document.getElementById('div1');
   drawCountStudentsCountry.innerHTML = countStudentsCountry; // Total de estudiantes por sede
 
@@ -108,8 +109,6 @@ const drawStatusSedes = (generations, campus, students, generacion) => {
     // templateGeneration += `${gen.div1}`;
   });
 };
-
-console.log(drawStatusSedes(studentsByCountry()));
 
 // const drawStatusGeneration = (generations, campus, generacion, students) => {
 //   // console.log(students);
